@@ -1,0 +1,34 @@
+_repo: History-of-the-Decline-and-Fall-of-the-Roman-Empire-Volume-2_891
+contributor:
+  commentator:
+    agent_name: Milman, Henry Hart
+    alias: Milman, H. H. (Henry Hart)
+    birthdate: 1791
+    deathdate: 1868
+    gutenberg_agent_id: '8722'
+    url: http://www.gutenberg.org/2009/agents/8722
+    wikipedia: http://en.wikipedia.org/wiki/Henry_Hart_Milman
+creator:
+  author:
+    agent_name: Gibbon, Edward
+    birthdate: 1737
+    deathdate: 1794
+    gutenberg_agent_id: '375'
+    url: http://www.gutenberg.org/2009/agents/375
+    wikipedia: http://en.wikipedia.org/wiki/Edward_Gibbon
+description: Vol. 5. Justinian and the Roman law edited and with an introduction by
+  Felipe Fernández-Armesto. 1987.
+gutenberg_issued: '2008-06-07'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '891'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcc 'DG'
+- !lcsh 'Byzantine Empire -- History -- To 527'
+- !lcsh 'Rome -- History -- Empire, 30 B.C.-476 A.D.'
+title: History of the Decline and Fall of the Roman Empire — Volume 2
+url: http://www.gutenberg.org/ebooks/891
