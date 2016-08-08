@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: h+yp9aKp9CTVBGK4NaJFim93qiV1BrnECjAhTNKeze/GJrGV/lnWlFw0C09iYZoCTPyIrlCKbobtMsFn8Q3Lu5qxid3hJok2By90ZUKbx/8GGoSjuyfmucPFbFtcI2G9tnaJKS5YjELZM+t39ZmiRZuKhxWSIwXPwfCFR9KKzi7dNeThR1JOCUWx1xeirxZwUUwSN+v/xMJQIHurIj6D8FAMR7ZLMWeq05O9Zw/mJsHdaENB1ON5VXH6SdugBvmxMvqz4p07Ne89pxWkaYabjsr92LDa/4NXsf3zb9x5MH2dz6AYWDtXpsvTCcJoKqx+XXPtW0rRaC0VKKwWqhh4MkTpz1GRoL4IOVF+X1V0hFqyj2175v4HswBUTBqELURDuEveyUsmEAnnJdOiuzD1YjAtT/XZjTGX1Kw1KeUvgrhMALnvEc2LVsgS5WKTC5e5egPZGdSwvKh81h0LIng/KngmbGcPnS/nXq3QEmjINn3GqmU8RTy9X3r40cLXxgdnVe7FQm2PSuran2l9vmYGvA+D4Y9oBzZdGKXe7N+d+b9eDsyaeck7zmjtbq2fgl5qAf0NIN3Fajza3TXf0BJJ0jI3v7uvT5MamK2djzdCPHr5sJCGQx37QsxZmifu7K7weYMYLnpsWkzUlB3+ClwjOU6pU/D8Tp9w/gZuPoSAjJc=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/History-of-the-Decline-and-Fall-of-the-Roman-Empire-Volume-2_891
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
