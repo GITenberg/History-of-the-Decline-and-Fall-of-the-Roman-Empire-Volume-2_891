@@ -1,5 +1,5 @@
 _repo: History-of-the-Decline-and-Fall-of-the-Roman-Empire-Volume-2_891
-_version: 0.2.0
+_version: 0.2.1
 contributor:
   commentator:
     agent_name: Milman, Henry Hart
@@ -36,5 +36,6 @@ subjects:
 - !lcc 'DG'
 - !lcsh 'Byzantine Empire -- History -- To 527'
 - !lcsh 'Rome -- History -- Empire, 30 B.C.-476 A.D.'
+- GITenberg
 title: History of the Decline and Fall of the Roman Empire — Volume 2
 url: http://www.gutenberg.org/ebooks/891
